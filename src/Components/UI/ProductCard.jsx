@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import AddToCartButton from "./Buttons/AddToCartButton";
 import SelectedButton from "./Buttons/SelectedButton";
+import CartIcon from "../../assets/images/icon-add-to-cart.svg";
+import DecrementIcon from "../../assets/images/icon-decrement-quantity.svg";
+import IncrementIcon from "../../assets/images/icon-increment-quantity.svg";
 
 function ProductCard({ product }) {
-  const ButtonStyles = {
-    AddToCart:
-      "relative bottom-8 z-10 bg-slate-100 w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black",
-    SelectedItem:
-      "flex justify-between gap-2 w-3/5 p-4 rounded-full text-white bg-orange-800",
-  };
+  const [buttonState, setButtonState] = useState(false);
+
+  function handleButton() {
+    setButtonState(!buttonState);
+  }
 
   return (
     <div className="flex flex-col mb-4">
@@ -19,12 +21,15 @@ function ProductCard({ product }) {
           src={product.image.mobile}
           alt={"Photo of " + product.name}
         />
-        <AddToCartButton />
-        <SelectedButton />
+        {buttonState ? (
+          <SelectedButton onClick={handleButton} />
+        ) : (
+          <AddToCartButton onClick={handleButton} />
+        )}
       </div>
-      <h2>{product.category}</h2>
-      <h3>{product.name}</h3>
-      <p>${product.price.toFixed(2)}</p>
+      <h2 className="text-rose-500">{product.category}</h2>
+      <h3 className="font-bold">{product.name}</h3>
+      <p className="text-red_orange font-bold">${product.price.toFixed(2)}</p>
     </div>
   );
 }

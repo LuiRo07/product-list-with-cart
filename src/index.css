@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* sets the default font size */
+@layer base {
+  html {
+    font-family: 'red-hat-text', system-ui, system-ui, sans-serif;
+  }
+}
