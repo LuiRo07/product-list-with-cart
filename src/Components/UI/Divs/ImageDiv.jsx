@@ -4,6 +4,7 @@ import SelectedButton from "../Buttons/SelectedButton";
 
 export default function ImageDiv({ image }) {
   const [buttonState, setButtonState] = useState(false);
+  const [itemQuantity, setItemQuantity] = useState(1);
 
   {
     if (buttonState) {
@@ -14,7 +15,12 @@ export default function ImageDiv({ image }) {
             src={image}
             alt={"Photo of " + image.name}
           />
-          <SelectedButton />
+          <SelectedButton
+            buttonState={buttonState}
+            setButtonState={setButtonState}
+            setItemQuantity={setItemQuantity}
+            itemQuantity={itemQuantity}
+          />
         </div>
       );
     } else {
