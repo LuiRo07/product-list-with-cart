@@ -17,9 +17,10 @@ const ProductList = () => {
 
   return (
     <>
+      <div className="font-extrabold mb-8 text-4xl">Desserts</div>
       {data.map((dessert) => (
         <div className="flex flex-col">
-          <ProductCard product={dessert} />
+          <ProductCard product={dessert} key={dessert.id} />
         </div>
       ))}
     </>

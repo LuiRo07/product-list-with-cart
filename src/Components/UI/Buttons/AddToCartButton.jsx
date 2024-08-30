@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import cartIcon from "../../../assets/images/icon-add-to-cart.svg";
+import SelectedButton from "./SelectedButton";
 
-const AddToCartButton = () => {
-  return (
-    <button className="font-semibold relative bottom-8 z-10 bg-slate-100 w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black">
-      <img src={cartIcon} />
-      <a href="#">Add To Cart</a>
-    </button>
-  );
+const AddToCartButton = ({ setButtonState, buttonState }) => {
+  function handleButton({ buttonState }) {
+    setButtonState(!buttonState);
+  }
+
+  {
+    if (buttonState) {
+      return <SelectedButton />;
+    } else {
+      return (
+        <button
+          className="font-semibold relative bottom-8 z-10 bg-slate-100 w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black"
+          onClick={handleButton}
+        >
+          <img src={cartIcon} />
+          <p>Add To Cart</p>
+        </button>
+      );
+    }
+  }
 };
 
 export default AddToCartButton;
