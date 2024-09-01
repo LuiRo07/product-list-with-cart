@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import cartIcon from "../../../assets/images/icon-add-to-cart.svg";
-import SelectedButton from "./SelectedButton";
 
 const AddToCartButton = ({ setButtonState, buttonState }) => {
   function handleButton() {

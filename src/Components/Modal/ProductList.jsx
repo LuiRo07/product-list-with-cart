@@ -3,6 +3,7 @@ import ProductCard from "../UI/ProductCard";
 
 const ProductList = () => {
   const [data, setData] = useState(null);
+  const activeCards = [];
 
   useEffect(() => {
     fetch("./data.json")
@@ -20,7 +21,7 @@ const ProductList = () => {
       <div className="font-extrabold mb-8 text-4xl">Desserts</div>
       {data.map((dessert) => (
         <div className="flex flex-col">
-          <ProductCard product={dessert} key={dessert.id} />
+          <ProductCard product={dessert} />
         </div>
       ))}
     </>

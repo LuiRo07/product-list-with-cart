@@ -1,11 +1,11 @@
 import ProductList from "./Components/Modal/ProductList";
-import Cart from "./Components//Modal/Cart";
+import CartModal from "./Components/Modal/CartModal";
 
 function App() {
   return (
     <div className="p-10">
       <ProductList />
-      <Cart />
+      <CartModal />
     </div>
   );
 }
