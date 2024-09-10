@@ -1,13 +1,13 @@
 import React from "react";
 import RemoveItemIcon from "../../../assets/images/icon-remove-item.svg";
 
-export default function CartRowDiv() {
+export default function CartRowDiv({ name }) {
   return (
     <div className="p-2 border-b-2 flex justify-between">
       {/* left side grid */}
       <div className="grid grid-cols-[20px_1fr_1fr] gap-x-2">
         {/* product name */}
-        <h1 className="font-bold col-span-3">Classic Tiramisu</h1>
+        <h1 className="font-bold col-span-3">{name}</h1>
         {/* quantity */}
         <p className="font-bold text-red_orange">4x</p>
         {/* regular price */}
