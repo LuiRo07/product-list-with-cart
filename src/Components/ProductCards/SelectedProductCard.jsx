@@ -1,18 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import DecrementIcon from "../../assets/images/icon-decrement-quantity.svg";
 import IncrementIcon from "../../assets/images/icon-increment-quantity.svg";
-import { CartContext } from "../../Context/context";
 
 function SelectedButton({
-  name,
-  price,
   setButtonState,
   buttonState,
   setItemQuantity,
   itemQuantity,
 }) {
-  const { cart, setCart } = useContext(CartContext);
-
   const increment = () => {
     setItemQuantity((prevCount) => prevCount + 1);
   };
@@ -25,20 +20,10 @@ function SelectedButton({
     }
   };
 
-  function handleAddToCart() {
-    setCart(...cart, {
-      name: name,
-      price: price,
-      quantity: itemQuantity,
-    });
-  }
-
   return (
     <button
       className="relative bottom-8 z-10 flex justify-between gap-2 w-3/5 p-4 rounded-full text-white bg-orange-800"
       type="button"
-      value={itemQuantity}
-      onClick={handleAddToCart}
     >
       <div
         className="grid items-center self-center p-1 rounded-full border size-5"
@@ -56,8 +41,6 @@ function SelectedButton({
 
 export default function SelectedProductCard({
   productImage,
-  name,
-  price,
   buttonState,
   setButtonState,
   itemQuantity,
@@ -71,8 +54,6 @@ export default function SelectedProductCard({
         alt={"Photo of " + name}
       />
       <SelectedButton
-        name={name}
-        price={price}
         buttonState={buttonState}
         setButtonState={setButtonState}
         setItemQuantity={setItemQuantity}
