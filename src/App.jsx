@@ -7,7 +7,7 @@ function App() {
     {
       image: {
         thumbnail: "../src/assets/images/image-waffle-thumbnail.jpg",
-        mobile: "./src/assets/images/image-waffle-mobile.jpg",
+        mobile: "./assets/images/image-waffle-mobile.jpg",
         tablet: "../src/assets/images/image-waffle-tablet.jpg",
         desktop: "../src/assets/images/image-waffle-desktop.jpg",
       },
