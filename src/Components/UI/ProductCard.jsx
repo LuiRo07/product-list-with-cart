@@ -13,7 +13,7 @@ function ProductCard({ product }) {
       <div className="flex flex-col items-center">
         {buttonState ? (
           <SelectedProductCard
-            productImage={URL(product.image.mobile)}
+            productImage={product.image.mobile}
             name={product.name}
             price={product.price}
             setButtonState={setButtonState}
@@ -23,7 +23,7 @@ function ProductCard({ product }) {
           />
         ) : (
           <DefaultProductCard
-            productImage={URL(product.image.mobile)}
+            productImage={product.image.mobile}
             name={product.name}
             buttonState={buttonState}
             setButtonState={setButtonState}
