@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ProductCard from "./Components/UI/ProductCard";
 import Cart from "./Components/Modal/Cart";
 
 function App() {
-  const [data, setData] = useState(null);
-  const [cart, setCart] = useState([]);
-
   const products = [
     {
       image: {
