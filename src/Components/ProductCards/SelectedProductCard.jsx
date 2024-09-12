@@ -1,6 +1,6 @@
 import React from "react";
-import DecrementIcon from "../../assets/images/icon-decrement-quantity.svg";
-import IncrementIcon from "../../assets/images/icon-increment-quantity.svg";
+import DecrementIcon from "/images/icon-decrement-quantity.svg";
+import IncrementIcon from "/images/icon-increment-quantity.svg";
 
 function SelectedButton({
   setButtonState,

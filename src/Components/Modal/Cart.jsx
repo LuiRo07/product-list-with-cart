@@ -1,8 +1,8 @@
 import React from "react";
-import EmptyCart from "../../assets/images/illustration-empty-cart.svg";
+import EmptyCart from "/images/illustration-empty-cart.svg";
 import ConfirmOrderButton from "../UI/Buttons/ConfirmOrderButton";
-import CarbonNeutralIcon from "../../assets/images/icon-carbon-neutral.svg";
-import RemoveItemIcon from "../../assets/images/icon-remove-item.svg";
+import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
+import RemoveItemIcon from "/images/icon-remove-item.svg";
 
 function DefaultCart() {
   return (

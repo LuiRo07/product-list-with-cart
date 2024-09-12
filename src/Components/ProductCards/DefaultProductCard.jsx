@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
-import cartIcon from "../../assets/images/icon-add-to-cart.svg";
-import { CartContext } from "../../Context/context";
+import React from "react";
+import cartIcon from "/images/icon-add-to-cart.svg";
 
 const AddToCartButton = ({ setButtonState, buttonState }) => {
   function handleButton() {
