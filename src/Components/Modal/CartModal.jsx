@@ -28,6 +28,8 @@ function ActiveCart() {
     getCartTotal,
   } = useContext(CartContext);
 
+  const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
+
   return (
     <div className="p-3">
       <div className="w-full h-full p-3">
@@ -35,12 +37,16 @@ function ActiveCart() {
           Your Cart ({cartItems.length})
         </h1>
         {cartItems.map((item, index) => (
-          <div className="p-2 border-b-2 flex justify-between" key={index}>
+          <div className="p-2 border-b-2 flex justify-between mb-2" key={index}>
             <div className="grid grid-cols-[20px_1fr_1fr] gap-x-2">
               <h1 className="font-bold col-span-3">{item.name}</h1>
-              <p className="font-bold text-red_orange">{item.price}</p>
-              <span className="text-rose-300 font-medium">${item.price}</span>
-              <span>{item.quantity}x</span>
+              <p className="font-bold text-red_orange">{item.quantity}x</p>
+              <span className="text-rose-300 font-medium">
+                @ {item.price.toFixed(2)}
+              </span>
+              <span className="text-rose-200 font-medium">
+                {"$ " + `${(item.price * item.quantity).toFixed(2)}`}
+              </span>
             </div>
             <div className="self-center">
               <img
@@ -53,6 +59,11 @@ function ActiveCart() {
             </div>
           </div>
         ))}
+
+        <div className="flex justify-between">
+          <h3>Order Total</h3>
+          <h2>{cartTotal}</h2>
+        </div>
 
         {/* delivery type */}
         <div className="w-full p-4 bg-rose-100/50 flex justify-center my-8">
