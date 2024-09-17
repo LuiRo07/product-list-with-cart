@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../Context/cart";
 import EmptyCart from "/images/illustration-empty-cart.svg";
-import ConfirmOrderButton from "../UI/Buttons/ConfirmOrderButton";
+import ConfirmOrderButton from "./ConfirmOrderButton";
 import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
 import RemoveItemIcon from "/images/icon-remove-item.svg";
 
@@ -18,38 +19,42 @@ function DefaultCart() {
   );
 }
 
-function ActiveCart({ name, itemQuantity, price }) {
+function ActiveCart() {
+  const {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    getCartTotal,
+  } = useContext(CartContext);
+
   return (
     <div className="p-3">
       <div className="w-full h-full p-3">
         <h1 className="text-red_orange font-bold text-2xl mb-8">
-          Your Cart ({0})
+          Your Cart ({cartItems.length})
         </h1>
-        {/* cart items */}
-        <div className="p-2 border-b-2 flex justify-between">
-          {/* left side grid */}
-          <div className="grid grid-cols-[20px_1fr_1fr] gap-x-2">
-            {/* product name */}
-            <h1 className="font-bold col-span-3">{name}</h1>
-            {/* quantity */}
-            <p className="font-bold text-red_orange">{itemQuantity}x</p>
-            {/* regular price */}
-            <span className="text-rose-300 font-medium">${price}</span>
-            {/* total price */}
-            <span className="text-rose-400 font-medium">
-              ${itemQuantity * price}
-            </span>
+        {cartItems.map((item) => (
+          <div className="p-2 border-b-2 flex justify-between">
+            <div className="grid grid-cols-[20px_1fr_1fr] gap-x-2">
+              <h1 className="font-bold col-span-3">{item.name}</h1>
+              <p className="font-bold text-red_orange">{item.price}x</p>
+              <span className="text-rose-300 font-medium">${item.price}</span>
+              <span className="text-rose-400 font-medium">${0}</span>
+              <span>{item.quantity}x</span>
+            </div>
+            <div className="self-center">
+              <img
+                src={RemoveItemIcon}
+                alt="X icon to remove item"
+                className="p-1 rounded-full border-2"
+                size={10}
+                onClick={() => removeFromCart(item)}
+              />
+            </div>
           </div>
-          {/* x icon */}
-          <div className="self-center">
-            <img
-              src={RemoveItemIcon}
-              alt="X icon to remove item"
-              className="p-1 rounded-full border-2"
-              size={10}
-            />
-          </div>
-        </div>
+        ))}
+
         {/* delivery type */}
         <div className="w-full p-4 bg-rose-100/50 flex justify-center my-8">
           <img
@@ -68,9 +73,7 @@ function ActiveCart({ name, itemQuantity, price }) {
 }
 
 function Cart({ items }) {
-  return <DefaultCart />;
+  return <ActiveCart />;
 }
-
-// how can I implement a cart functionality for a product store?
 
 export default Cart;

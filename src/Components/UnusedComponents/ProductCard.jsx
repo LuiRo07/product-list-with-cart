@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DefaultProductCard from "../ProductCards/DefaultProductCard";
-import SelectedProductCard from "../ProductCards/SelectedProductCard";
+import DefaultProductCard from "./DefaultProductCard";
+import SelectedProductCard from "./SelectedProductCard";
 
 function ProductCard({ product }) {
   const [buttonState, setButtonState] = useState(false);
