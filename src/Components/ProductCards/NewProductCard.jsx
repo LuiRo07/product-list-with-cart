@@ -106,9 +106,12 @@ const desserts = [
   },
 ];
 
-function AddToCartButton({ buttonState, setButtonState }) {
+function AddToCartButton({ product, buttonState, setButtonState }) {
+  const { addToCart } = useContext(CartContext);
+
   function handleButtonState() {
     setButtonState(!buttonState);
+    addToCart(product);
   }
 
   return (
@@ -124,20 +127,27 @@ function AddToCartButton({ buttonState, setButtonState }) {
   );
 }
 
-function SelectedCardButton({ buttonState, setButtonState }) {
-  const [itemQuantity, setItemQuantity] = useState(0);
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+function SelectedCardButton({
+  product,
+  itemQuantity,
+  setItemQuantity,
+  buttonState,
+  setButtonState,
+}) {
+  const { addToCart, removeFromCart } = useContext(CartContext);
 
   function decrement() {
     if (itemQuantity === 1) {
       setButtonState(!buttonState);
     } else {
       setItemQuantity((quantity) => quantity - 1);
+      removeFromCart(product);
     }
   }
 
   function increment() {
     setItemQuantity((quantity) => quantity + 1);
+    addToCart(product);
   }
 
   return (
@@ -181,11 +191,15 @@ function DefaultCard({ product }) {
       />
       {buttonState ? (
         <SelectedCardButton
+          product={product}
+          itemQuantity={itemQuantity}
+          setItemQuantity={setItemQuantity}
           buttonState={buttonState}
           setButtonState={setButtonState}
         />
       ) : (
         <AddToCartButton
+          product={product}
           buttonState={buttonState}
           setButtonState={setButtonState}
         />

@@ -34,13 +34,12 @@ function ActiveCart() {
         <h1 className="text-red_orange font-bold text-2xl mb-8">
           Your Cart ({cartItems.length})
         </h1>
-        {cartItems.map((item) => (
-          <div className="p-2 border-b-2 flex justify-between">
+        {cartItems.map((item, index) => (
+          <div className="p-2 border-b-2 flex justify-between" key={index}>
             <div className="grid grid-cols-[20px_1fr_1fr] gap-x-2">
               <h1 className="font-bold col-span-3">{item.name}</h1>
-              <p className="font-bold text-red_orange">{item.price}x</p>
+              <p className="font-bold text-red_orange">{item.price}</p>
               <span className="text-rose-300 font-medium">${item.price}</span>
-              <span className="text-rose-400 font-medium">${0}</span>
               <span>{item.quantity}x</span>
             </div>
             <div className="self-center">
@@ -72,7 +71,7 @@ function ActiveCart() {
   );
 }
 
-function Cart({ items }) {
+function Cart() {
   return <ActiveCart />;
 }
 
