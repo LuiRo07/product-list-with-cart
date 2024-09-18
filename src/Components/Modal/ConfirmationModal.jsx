@@ -2,6 +2,7 @@ import React from "react";
 import tiramisuThumbnail from "/images/image-tiramisu-thumbnail.jpg";
 import orderConfirmedIcon from "/images/icon-order-confirmed.svg";
 
+// Might delete, since the button is hardcoded within Confirmation Modal
 function StartNewOrderButton() {
   return (
     <button
@@ -37,7 +38,11 @@ function CartList() {
   );
 }
 
-function ConfirmationModal() {
+function ConfirmationModal({ showModal, setShowModal }) {
+  function handleClearCartButton() {
+    setShowModal(!showModal);
+  }
+
   return (
     <div className="p-5 border rounded-2xl">
       <img
@@ -58,7 +63,13 @@ function ConfirmationModal() {
         <h3 className="text-lg">Order Total</h3>
         <h2 className="font-extrabold text-2xl">$46.50</h2>
       </div>
-      <StartNewOrderButton />
+      <button
+        type="button"
+        className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+        onClick={handleClearCartButton}
+      >
+        Start New Order
+      </button>
     </div>
   );
 }
