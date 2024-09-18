@@ -1,9 +1,20 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Context/cart";
 import EmptyCart from "/images/illustration-empty-cart.svg";
-import ConfirmOrderButton from "./ConfirmOrderButton";
 import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
 import RemoveItemIcon from "/images/icon-remove-item.svg";
+import ConfirmationModal from "./ConfirmationModal";
+
+function ConfirmOrderButton() {
+  return (
+    <button
+      type="button"
+      className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+    >
+      Confirm Order
+    </button>
+  );
+}
 
 function DefaultCart() {
   return (
@@ -29,6 +40,11 @@ function ActiveCart() {
     getTotalNumOfItems,
     removeItem,
   } = useContext(CartContext);
+  const [showModal, setShowModal] = useState(false);
+
+  function handleConfirmOrderButton() {
+    setShowModal(!showModal);
+  }
 
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
   const totalItems = getTotalNumOfItems();
@@ -79,7 +95,12 @@ function ActiveCart() {
             This is a <span className="font-bold">carbon-neutral</span> delivery
           </p>
         </div>
-        <ConfirmOrderButton />
+        <button
+          type="button"
+          className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+        >
+          Confirm Order
+        </button>
       </div>
     </div>
   );
