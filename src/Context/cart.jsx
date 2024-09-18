@@ -55,6 +55,17 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const getTotalNumOfItems = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const removeItem = (item) => {
+    const isItemInCart = cartItems.find(
+      (cartItem) => cartItem.name === item.name
+    );
+    setCartItems(cartItems.filter((cartItem) => cartItem.name !== item.name));
+  };
+
   useEffect(() => {
     const cartItems = localStorage.getItem("cartItems");
     if (cartItems) {
@@ -64,7 +75,15 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart, getCartTotal }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        getCartTotal,
+        getTotalNumOfItems,
+        removeItem,
+      }}
     >
       {children}
     </CartContext.Provider>

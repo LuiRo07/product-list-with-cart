@@ -26,15 +26,18 @@ function ActiveCart() {
     removeFromCart,
     clearCart,
     getCartTotal,
+    getTotalNumOfItems,
+    removeItem,
   } = useContext(CartContext);
 
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
+  const totalItems = getTotalNumOfItems();
 
   return (
     <div className="p-3">
       <div className="w-full h-full p-3">
         <h1 className="text-red_orange font-bold text-2xl mb-8">
-          Your Cart ({cartItems.length})
+          Your Cart ({totalItems})
         </h1>
         {cartItems.map((item, index) => (
           <div className="p-2 border-b-2 flex justify-between mb-2" key={index}>
@@ -54,7 +57,7 @@ function ActiveCart() {
                 alt="X icon to remove item"
                 className="p-1 rounded-full border-2"
                 size={10}
-                onClick={() => removeFromCart(item)}
+                onClick={() => removeItem(item)}
               />
             </div>
           </div>
@@ -83,7 +86,14 @@ function ActiveCart() {
 }
 
 function Cart() {
-  return <ActiveCart />;
+  const { getCartTotal } = useContext(CartContext);
+
+  const totalNumOfItems = getCartTotal();
+
+  if (totalNumOfItems > 1) {
+    return <ActiveCart />;
+  }
+  return <DefaultCart />;
 }
 
 export default Cart;

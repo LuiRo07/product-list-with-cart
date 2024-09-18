@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NewProductCard from "./Components/ProductCards/NewProductCard";
 import CartModal from "./Components/Modal/CartModal";
+import ConfirmationModal from "./Components/Modal/ConfirmationModal";
 
 // const products = [
 //   {
@@ -108,13 +109,16 @@ function App() {
   // const [data, setData] = useState(products);
 
   return (
-    <div className="p-10">
-      <div className="font-extrabold mb-8 text-4xl">Desserts</div>
-      <div className="flex flex-col">
-        <NewProductCard />
-        <CartModal />
+    <>
+      <div className="p-10">
+        <div className="font-extrabold mb-8 text-4xl">Desserts</div>
+        <div className="flex flex-col">
+          <NewProductCard />
+          <CartModal />
+        </div>
       </div>
-    </div>
+      <ConfirmationModal />
+    </>
   );
 }
 
