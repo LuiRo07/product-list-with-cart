@@ -3,18 +3,6 @@ import { CartContext } from "../../Context/cart";
 import orderConfirmedIcon from "/images/icon-order-confirmed.svg";
 import { ProductButtonContext } from "../../Context/productButton";
 
-// Might delete, since the button is hardcoded within Confirmation Modal
-function StartNewOrderButton() {
-  return (
-    <button
-      type="button"
-      className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
-    >
-      Start New Order
-    </button>
-  );
-}
-
 function CartList({ cartItem }) {
   return (
     <li className="list-none">

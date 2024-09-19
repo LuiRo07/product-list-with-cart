@@ -5,18 +5,6 @@ import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
 import RemoveItemIcon from "/images/icon-remove-item.svg";
 import ConfirmationModal from "./ConfirmationModal";
 
-// might delete, since this button is hardcoded within ActiveCart
-function ConfirmOrderButton() {
-  return (
-    <button
-      type="button"
-      className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
-    >
-      Confirm Order
-    </button>
-  );
-}
-
 function DefaultCart() {
   return (
     <div className="h-64 p-3 mb-10">
