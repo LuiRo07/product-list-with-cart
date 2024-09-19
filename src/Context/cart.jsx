@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
+      setCartItems([...cartItems, { ...item, quantity: 1, buttonState: true }]); // if the item is not in the cart, add the item to the cart
     }
   };
 
