@@ -141,8 +141,8 @@ function SelectedCardButton({
       setButtonState(!buttonState);
     } else {
       setItemQuantity((quantity) => quantity - 1);
-      removeFromCart(product);
     }
+    removeFromCart(product);
   }
 
   function increment() {
