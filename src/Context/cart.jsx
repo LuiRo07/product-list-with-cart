@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (item) => {
     const isItemInCart = cartItems.find(
-      (cartItem) => cartItem.name === item.name
+      (cartItem) => cartItem.name === item.name && cartItem.buttonState === true
     );
 
     if (isItemInCart.quantity === 1) {
