@@ -178,10 +178,6 @@ function DefaultCard({ product }) {
   const [buttonState, setButtonState] = useState(false);
   const [itemQuantity, setItemQuantity] = useState(1);
 
-  function handleButtonState() {
-    setButtonState(!buttonState);
-  }
-
   return (
     <>
       <img
