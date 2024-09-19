@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../Context/cart";
-import tiramisuThumbnail from "/images/image-tiramisu-thumbnail.jpg";
 import orderConfirmedIcon from "/images/icon-order-confirmed.svg";
+import { ProductButtonContext } from "../../Context/productButton";
 
 // Might delete, since the button is hardcoded within Confirmation Modal
 function StartNewOrderButton() {
@@ -47,10 +47,12 @@ function CartList({ cartItem }) {
 
 function ConfirmationModal({ showModal, setShowModal }) {
   const { cartItems, clearCart, getCartTotal } = useContext(CartContext);
+  const { handleButtonState } = useContext(ProductButtonContext);
 
   function handleClearCartButton() {
     setShowModal(!showModal);
     clearCart();
+    handleButtonState();
   }
 
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
