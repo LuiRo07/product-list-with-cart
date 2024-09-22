@@ -12,7 +12,7 @@ const desserts = [
     name: "Waffle with Berries",
     category: "Waffle",
     price: 6.5,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -25,7 +25,7 @@ const desserts = [
     name: "Vanilla Bean Crème Brûlée",
     category: "Crème Brûlée",
     price: 7.0,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -38,7 +38,7 @@ const desserts = [
     name: "Macaron Mix of Five",
     category: "Macaron",
     price: 8.0,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -51,7 +51,7 @@ const desserts = [
     name: "Classic Tiramisu",
     category: "Tiramisu",
     price: 5.5,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -64,7 +64,7 @@ const desserts = [
     name: "Pistachio Baklava",
     category: "Baklava",
     price: 4.0,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -77,7 +77,7 @@ const desserts = [
     name: "Lemon Meringue Pie",
     category: "Pie",
     price: 5.0,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -90,7 +90,7 @@ const desserts = [
     name: "Red Velvet Cake",
     category: "Cake",
     price: 4.5,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -103,7 +103,7 @@ const desserts = [
     name: "Salted Caramel Brownie",
     category: "Brownie",
     price: 4.5,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
   {
@@ -116,7 +116,7 @@ const desserts = [
     name: "Vanilla Panna Cotta",
     category: "Panna Cotta",
     price: 6.5,
-    quantity: 1,
+    quantity: 0,
     buttonState: false,
   },
 ];
@@ -155,7 +155,11 @@ export const ProductProvider = ({ children }) => {
       setProducts(
         products.map((productItem) =>
           productItem.name === product.name
-            ? { ...productItem, quantity: productItem.quantity + 1 }
+            ? {
+                ...productItem,
+                quantity: productItem.quantity + 1,
+                buttonState: true,
+              }
             : productItem
         )
       );
@@ -170,13 +174,13 @@ export const ProductProvider = ({ children }) => {
     );
 
     if (isItemInCart.quantity === 1) {
-      handleProductState(product); // if the quantity of the item is 1, remove the item from the cart
       setProducts(
         products.map((productItem) =>
           productItem.name === product.name
             ? {
                 ...productItem,
                 quantity: productItem.quantity - 1,
+                buttonState: false,
               }
             : productItem
         )

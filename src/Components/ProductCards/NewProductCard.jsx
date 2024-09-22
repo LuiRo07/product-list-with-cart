@@ -6,12 +6,10 @@ import { CartContext } from "../../Context/cart";
 import { ProductContext } from "../../Context/product";
 
 function AddToCartButton({ product }) {
-  const { addToCart } = useContext(CartContext);
-  const { handleProductState } = useContext(ProductContext);
+  const { addQuantity } = useContext(ProductContext);
 
   function handleButtonState() {
-    handleProductState(product);
-    addToCart(product);
+    addQuantity(product);
   }
 
   return (
@@ -62,27 +60,22 @@ function SelectedCardButton({ product }) {
   );
 }
 
-function SelectedCardProduct({ product }) {
-  return (
-    <>
-      <div className="w-full rounded-xl overflow-hidden border-4 border-red_orange">
-        <img src={product.image.mobile} alt={"Photo of " + product.name} />
-      </div>
-      <SelectedCardButton product={product} />
-    </>
-  );
-}
-
+// this is where state should be rendered for product cards individually, don't touch
 function DefaultCard({ product }) {
   return (
     <>
       <div
-        className={`w-full rounded-xl overflow-hidden border-2 "border-transparent"
+        className={`w-full rounded-xl overflow-hidden border-2 ${
+          product.buttonState ? "border-red_orange" : "border-transparent"
         }`}
       >
         <img src={product.image.mobile} alt={"Photo of " + product.name} />
       </div>
-      <AddToCartButton product={product} />
+      {product.buttonState ? (
+        <SelectedCardButton product={product} />
+      ) : (
+        <AddToCartButton product={product} />
+      )}
     </>
   );
 }
@@ -94,11 +87,7 @@ function NewProductCard() {
     <>
       {products.map((dessert, index) => (
         <div className="mb-10" key={index}>
-          {dessert.buttonState ? (
-            <SelectedCardProduct product={dessert} />
-          ) : (
-            <DefaultCard product={dessert} />
-          )}
+          <DefaultCard product={dessert} />
           <h2 className="text-rose-500">{dessert.category}</h2>
           <h3 className="font-bold">{dessert.name}</h3>
           <p className="text-red_orange font-bold">
