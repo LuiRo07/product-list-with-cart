@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { ProductContext } from "./product";
 
 export const CartContext = createContext();
 
@@ -22,13 +23,13 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
-      setCartItems([...cartItems, { ...item, quantity: 1, buttonState: true }]); // if the item is not in the cart, add the item to the cart
+      setCartItems([...cartItems, { ...item, quantity: 1 }]); // if the item is not in the cart, add the item to the cart
     }
   };
 
   const removeFromCart = (item) => {
     const isItemInCart = cartItems.find(
-      (cartItem) => cartItem.name === item.name && cartItem.buttonState === true
+      (cartItem) => cartItem.name === item.name
     );
 
     if (isItemInCart.quantity === 1) {

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../Context/cart";
+import { ProductContext } from "../../Context/product";
 import orderConfirmedIcon from "/images/icon-order-confirmed.svg";
 
 function CartList({ cartItem }) {
@@ -33,11 +34,12 @@ function CartList({ cartItem }) {
 }
 
 function ConfirmationModal({ showModal, setShowModal }) {
-  const { cartItems, clearCart, getCartTotal } = useContext(CartContext);
+  const { cartItems, getCartTotal } = useContext(CartContext);
+  const { resetProductState } = useContext(ProductContext);
 
   function handleClearCartButton() {
     setShowModal(!showModal);
-    clearCart();
+    resetProductState();
   }
 
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
