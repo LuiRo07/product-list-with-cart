@@ -33,19 +33,21 @@ function CartList({ cartItem }) {
   );
 }
 
-function ConfirmationModal({ showModal, setShowModal }) {
-  const { cartItems, getCartTotal } = useContext(CartContext);
+function ConfirmationModal() {
+  const { cartItems, getCartTotal, handleShowModalState } = useContext(
+    CartContext
+  );
   const { resetProductState } = useContext(ProductContext);
 
   function handleClearCartButton() {
-    setShowModal(!showModal);
+    handleShowModalState();
     resetProductState();
   }
 
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
 
   return (
-    <div className="p-5 border rounded-2xl absolute top-10 bg-slate-100 z-10 h-full">
+    <div className="p-5 border rounded-2xl absolute top-[21.33%] bg-slate-100 z-10 h-full">
       <img
         className="mb-3"
         src={orderConfirmedIcon}

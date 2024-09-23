@@ -30,21 +30,20 @@ function ActiveCart() {
     getCartTotal,
     getTotalNumOfItems,
     removeItem,
+    showModal,
+    handleShowModalState,
   } = useContext(CartContext);
-  const [showModal, setShowModal] = useState(false);
   const { removeProductFromState } = useContext(ProductContext);
 
   function handleConfirmOrderButton() {
-    setShowModal(!showModal);
+    handleShowModalState();
   }
 
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
   const totalItems = getTotalNumOfItems();
 
   if (showModal) {
-    return (
-      <ConfirmationModal showModal={showModal} setShowModal={setShowModal} />
-    );
+    return <ConfirmationModal />;
   } else {
     return (
       <div className="p-3 mb- 10">

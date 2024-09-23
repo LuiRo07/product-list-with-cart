@@ -5,6 +5,11 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModalState = () => {
+    setShowModal(!showModal);
+  };
 
   const addToCart = (item) => {
     const isItemInCart = cartItems.find(
@@ -84,6 +89,9 @@ export const CartProvider = ({ children }) => {
         getCartTotal,
         getTotalNumOfItems,
         removeItem,
+        showModal,
+        setShowModal,
+        handleShowModalState,
       }}
     >
       {children}
