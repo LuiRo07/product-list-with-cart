@@ -5,7 +5,7 @@ import CartModal from "./Components/Modal/CartModal";
 function App() {
   return (
     <>
-      <div className="p-10">
+      <div id="top" name="top" className="p-10">
         <div className="font-extrabold mb-8 text-4xl">Desserts</div>
         <div className="flex flex-col">
           <NewProductCard />

@@ -5,6 +5,7 @@ import EmptyCart from "/images/illustration-empty-cart.svg";
 import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
 import RemoveItemIcon from "/images/icon-remove-item.svg";
 import ConfirmationModal from "./ConfirmationModal";
+import { Link } from "react-scroll";
 
 function DefaultCart() {
   return (
@@ -95,13 +96,15 @@ function ActiveCart() {
               delivery
             </p>
           </div>
-          <button
-            type="button"
-            className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
-            onClick={handleConfirmOrderButton}
-          >
-            Confirm Order
-          </button>
+          <Link to="top" smooth={true} duration={500}>
+            <button
+              type="button"
+              className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+              onClick={handleConfirmOrderButton}
+            >
+              Confirm Order
+            </button>
+          </Link>
         </div>
       </div>
     );

@@ -84,7 +84,7 @@ function NewProductCard() {
   const { products } = useContext(ProductContext);
 
   return (
-    <>
+    <div>
       {products.map((dessert, index) => (
         <div className="mb-10" key={index}>
           <DefaultCard product={dessert} />
@@ -95,7 +95,7 @@ function NewProductCard() {
           </p>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
