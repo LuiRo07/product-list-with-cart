@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../../Context/cart";
+import { ProductContext } from "../../Context/product";
 import EmptyCart from "/images/illustration-empty-cart.svg";
 import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
 import RemoveItemIcon from "/images/icon-remove-item.svg";
@@ -30,6 +31,7 @@ function ActiveCart() {
     removeItem,
   } = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
+  const { removeProductFromState } = useContext(ProductContext);
 
   function handleConfirmOrderButton() {
     setShowModal(!showModal);
@@ -70,7 +72,7 @@ function ActiveCart() {
                   alt="X icon to remove item"
                   className="p-1 rounded-full border-2"
                   size={10}
-                  onClick={() => removeItem(item)}
+                  onClick={() => removeProductFromState(item)}
                 />
               </div>
             </div>

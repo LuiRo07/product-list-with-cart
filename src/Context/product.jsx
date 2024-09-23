@@ -126,7 +126,9 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
   const [buttonState, setButtonState] = useState(false);
   const [products, setProducts] = useState(desserts);
-  const { addToCart, removeFromCart, clearCart } = useContext(CartContext);
+  const { addToCart, removeFromCart, clearCart, removeItem } = useContext(
+    CartContext
+  );
 
   const handleProductState = (product) => {
     const isItemInProducts = products.find(
@@ -206,6 +208,23 @@ export const ProductProvider = ({ children }) => {
     clearCart();
   };
 
+  const removeProductFromState = (product) => {
+    const isItemInCart = products.find(
+      (productItem) => productItem.name === product.name
+    );
+
+    if (isItemInCart) {
+      setProducts(
+        products.map((productItem) =>
+          productItem.name === product.name
+            ? { ...productItem, quantity: 0, buttonState: false }
+            : productItem
+        )
+      );
+    }
+    removeItem(product);
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -217,6 +236,7 @@ export const ProductProvider = ({ children }) => {
         addQuantity,
         subtractQuantity,
         resetProductState,
+        removeProductFromState,
       }}
     >
       {children}
