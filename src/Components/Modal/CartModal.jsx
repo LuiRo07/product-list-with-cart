@@ -9,7 +9,7 @@ import { Link } from "react-scroll";
 
 function DefaultCart() {
   return (
-    <div className="h-64 p-3 mb-10 bg-white round-xl sm:h-auto sm:p-2">
+    <div className="p-3 mb-10 bg-white round-xl sm:h-auto sm:p-2">
       <div className="w-full h-full p-3">
         <h1 className="text-red_orange font-bold text-2xl mb-8">
           Your Cart ({0})
