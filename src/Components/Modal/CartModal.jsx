@@ -15,7 +15,9 @@ function DefaultCart() {
           Your Cart ({0})
         </h1>
         <img className="relative left-1/4 mb-6" src={EmptyCart} />
-        <p className="ml-3">Your added items will appear here</p>
+        <p className="ml-3 text-rose-500 font-semibold">
+          Your added items will appear here
+        </p>
       </div>
     </div>
   );
