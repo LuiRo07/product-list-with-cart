@@ -47,7 +47,7 @@ function ConfirmationModal() {
   const cartTotal = `$ ${getCartTotal().toFixed(2)}`;
 
   return (
-    <div className="p-5 border rounded-2xl absolute top-[21.33%] bg-slate-100 z-10 h-full">
+    <div className="p-5 border rounded-2xl absolute top-[10%] sm:left-1/3 bg-slate-100 z-10 h-full">
       <img
         className="mb-3"
         src={orderConfirmedIcon}
