@@ -17,7 +17,7 @@ that displays your desserts and the total price in USD.
 ## Tech Stack
 
 - REACT JS
-- TailwindcCSS
+- Tailwind CSS
 - HTML
 
 ### Dependencies
