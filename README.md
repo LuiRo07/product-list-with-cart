@@ -26,4 +26,4 @@ that displays your desserts and the total price in USD.
 
 ## Live Demo
 
-[Click here to launch site](tasty-desserts-store.netlify.app)
+[Click here to launch site](https://tasty-desserts-store.netlify.app/)
