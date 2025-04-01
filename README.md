@@ -22,7 +22,7 @@ that displays your desserts and the total price in USD.
 
 ### Dependencies
 
-- React-Scroll (gives a new scrolling effect when confirming order.)
+- React-Scroll (gives a scrolling effect when confirming order.)
 
 ## Live Demo
 
