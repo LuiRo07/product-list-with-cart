@@ -15,10 +15,10 @@ function AddToCartButton({ product }) {
   return (
     <div className="flex justify-center">
       <button
-        className="font-semibold relative bottom-8 z-10 bg-slate-100 w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black md:overflow-hidden md:text-sm md:gap-0 md:font-medium"
+        className="font-semibold relative bottom-8 z-10 group bg-slate-100 w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black md:overflow-hidden md:text-sm md:gap-0 md:font-medium hover:bg-orange-800 hover:text-white"
         onClick={handleButtonState}
       >
-        <img src={cartIcon} al={"cart icon"} />
+        <img className="group-hover:stroke-white" src={cartIcon} alt={"cart icon"} />
         <p>Add to Cart</p>
       </button>
     </div>
