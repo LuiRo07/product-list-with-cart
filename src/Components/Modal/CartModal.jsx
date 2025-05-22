@@ -100,7 +100,7 @@ function ActiveCart() {
           <Link to="top" smooth={true} duration={500}>
             <button
               type="button"
-              className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+              className="w-full hover:bg-opacity-80 bg-red_orange text-slate-200 p-4 rounded-full border border-black"
               onClick={handleConfirmOrderButton}
             >
               Confirm Order

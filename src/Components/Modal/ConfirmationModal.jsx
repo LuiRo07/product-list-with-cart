@@ -68,7 +68,7 @@ function ConfirmationModal() {
       </div>
       <button
         type="button"
-        className="w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+        className="hover:bg-opacity-80 w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
         onClick={handleClearCartButton}
       >
         Start New Order
