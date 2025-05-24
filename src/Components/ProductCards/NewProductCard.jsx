@@ -15,7 +15,7 @@ function AddToCartButton({ product }) {
   return (
     <div className="flex justify-center">
       <button
-        className="font-semibold relative bottom-8 z-10 group bg-slate-100 w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black md:overflow-hidden md:text-sm md:gap-0 md:font-medium hover:bg-orange-800 hover:text-white transition-colors ease-in duration-600"
+        className="font-semibold relative bottom-8 z-10 group bg-slate-100 min-w-fit w-3/5 p-4 flex justify-center gap-3 rounded-full border border-black md:overflow-hidden md:text-sm md:gap-0 md:font-medium hover:bg-orange-800 hover:text-white transition-colors ease-in duration-600"
         onClick={handleButtonState}
       >
         <div className="mr-1 sm:mr-2">
