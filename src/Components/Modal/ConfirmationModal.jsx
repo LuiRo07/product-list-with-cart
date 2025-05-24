@@ -66,13 +66,15 @@ function ConfirmationModal() {
         <h3 className="text-lg">Order Total</h3>
         <h2 className="font-extrabold text-2xl">{cartTotal}</h2>
       </div>
-      <button
-        type="button"
-        className="hover:bg-opacity-80 w-full bg-red_orange text-slate-200 p-4 rounded-full border border-black"
-        onClick={handleClearCartButton}
-      >
-        Start New Order
-      </button>
+      <div className="flex justify-center">
+        <button
+          type="button"
+          className="hover:bg-opacity-80 w-1/2 bg-red_orange text-slate-200 p-4 rounded-full border border-black"
+          onClick={handleClearCartButton}
+        >
+          Start New Order
+        </button>
+      </div>
     </div>
   );
 }
