@@ -1,8 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
-import cartIcon from "/images/icon-add-to-cart.svg";
+import { useContext } from "react";
 import IncrementIcon from "/images/icon-increment-quantity.svg";
 import DecrementIcon from "/images/icon-decrement-quantity.svg";
-import { CartContext } from "../../Context/cart";
 import { ProductContext } from "../../Context/product";
 
 function AddToCartButton({ product }) {
@@ -19,6 +17,7 @@ function AddToCartButton({ product }) {
         onClick={handleButtonState}
       >
         <div className="mr-1 sm:mr-2">
+          {/* cart icon is dynamically styled when interacted with button */}
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20">
               <g className="group-hover:fill-white" fill="#C73B0F" clipPath="url(#a)">
                   <path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/>
