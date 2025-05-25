@@ -5,6 +5,7 @@ import EmptyCart from "/images/illustration-empty-cart.svg";
 import CarbonNeutralIcon from "/images/icon-carbon-neutral.svg";
 import RemoveItemIcon from "/images/icon-remove-item.svg";
 import ConfirmationModal from "./ConfirmationModal";
+import OrderActionButton from "../CTA-Button/OrderActionButton";
 import { Link } from "react-scroll";
 
 function DefaultCart() {
@@ -99,13 +100,10 @@ function ActiveCart() {
           </div>
           <Link to="top" smooth={true} duration={500}>
             <div className="flex justify-center">
-              <button
-                type="button"
-                className="w-1/2 hover:bg-opacity-80 bg-red_orange text-slate-200 p-4 rounded-full border border-black"
-                onClick={handleConfirmOrderButton}
-              >
-                Confirm Order
-              </button>
+              <OrderActionButton
+                label="Confirm Order"
+                handleAction={handleConfirmOrderButton}
+              />
             </div>
           </Link>
         </div>

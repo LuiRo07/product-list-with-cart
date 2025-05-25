@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../Context/cart";
 import { ProductContext } from "../../Context/product";
 import orderConfirmedIcon from "/images/icon-order-confirmed.svg";
+import OrderActionButton from "../CTA-Button/OrderActionButton";
 
 function CartList({ cartItem }) {
   return (
@@ -67,13 +68,10 @@ function ConfirmationModal() {
         <h2 className="font-extrabold text-2xl">{cartTotal}</h2>
       </div>
       <div className="flex justify-center">
-        <button
-          type="button"
-          className="hover:bg-opacity-80 w-1/2 bg-red_orange text-slate-200 p-4 rounded-full border border-black"
-          onClick={handleClearCartButton}
-        >
-          Start New Order
-        </button>
+        <OrderActionButton
+          label="Start New Order"
+          handleAction={handleClearCartButton}
+        />
       </div>
     </div>
   );
