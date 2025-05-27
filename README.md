@@ -42,8 +42,8 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [react-scroll](https://github.com/fisshy/react-scroll) - React Library for enhanced scrolling functionality
-- [Styled Components](https://tailwindcss.com/) - For styles
-- [React Hook](https://react.dev/reference/react/useContext) - lets you read and subcribe to context from components
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [React Hook - useContext](https://react.dev/reference/react/useContext) - lets you read and subcribe to context from components
 
 ### What I learned
 
