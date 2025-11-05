@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/cart";
 import { ProductContext } from "../../Context/product";
 import orderConfirmedIcon from "/images/icon-order-confirmed.svg";
-import OrderActionButton from "../CTA-Button/OrderActionButton";
+import ConfirmationButton from "../CTA-Button/ConfirmationButton";
 
 function CartList({ cartItem }) {
   return (
@@ -68,7 +68,7 @@ function ConfirmationModal() {
         <h2 className="font-extrabold text-2xl">{cartTotal}</h2>
       </div>
       <div className="flex justify-center">
-        <OrderActionButton
+        <ConfirmationButton
           label="Start New Order"
           handleAction={handleClearCartButton}
         />

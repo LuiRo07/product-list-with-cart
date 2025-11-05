@@ -1,5 +1,6 @@
-function OrderActionButton({label, handleAction}) {
+import React from 'react'
 
+function ConfirmationButton({label, handleAction}) {
   return (
     <button
           type="button"
@@ -7,9 +8,9 @@ function OrderActionButton({label, handleAction}) {
           className="hover:bg-opacity-80 w-1/2 bg-red_orange text-slate-200 p-4 rounded-full border border-black"
           onClick={handleAction}
         >
-          Checkout
+          Start New Order
         </button>
   )
 }
 
-export default OrderActionButton
+export default ConfirmationButton
