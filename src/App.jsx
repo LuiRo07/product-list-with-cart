@@ -8,14 +8,14 @@ function App() {
 
   return (
     <>
+      <div className={`font-extrabold mb-8 text-4xl sm:col-span-4 bg-orange-500 text-white p-6`}>
+        <h1>Desserts</h1>
+      </div>
       <div
         id="top"
         name="top"
         className="p-10 sm:grid sm:grid-cols-6 sm:gap-6 sm:p-5 bg-rose-200/15"
       >
-        <div className={`font-extrabold mb-8 text-4xl sm:col-span-4`}>
-          <h1>Desserts</h1>
-        </div>
         {/*  */}
         <div
           className={`flex flex-col sm:inline-grid sm:grid-cols-3 sm:gap-2 sm:col-span-4 ${
